@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalManager.Components
+namespace Components
 {
     public class Sale
     {

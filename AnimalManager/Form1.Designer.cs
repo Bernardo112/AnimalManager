@@ -1,6 +1,6 @@
 ﻿namespace AnimalManager
 {
-    partial class Login
+    partial class Form1
     {
         /// <summary>
         /// Variável de designer necessária.
