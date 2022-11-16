@@ -31,9 +31,6 @@ namespace AnimalManager
             {
                 SQL_Connect.Connection.Open();
             }
-
-            Login l = new Login("Quero Quero", "");
-            l.RegisterLogin();
         }
 
         private void label1_Click(object sender, EventArgs e)
