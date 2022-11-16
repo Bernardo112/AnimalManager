@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Classes;
 
 namespace AnimalManager
 {
@@ -15,6 +16,24 @@ namespace AnimalManager
         public Form1()
         {
             InitializeComponent();
+            Connect_SQL();
+        }
+
+        void Connect_SQL()
+        {
+            string message = SQL_Connect.Connect("server = 127.0.0.1; User Id = root; database = db_AnimalManager; password = admin");
+
+            if(message != "")
+            {
+                MessageBox.Show("Error: " + message);
+            }
+            else
+            {
+                SQL_Connect.Connection.Open();
+            }
+
+            Login l = new Login("Quero Quero", "");
+            l.RegisterLogin();
         }
 
         private void label1_Click(object sender, EventArgs e)

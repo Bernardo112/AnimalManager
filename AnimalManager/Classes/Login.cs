@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
-namespace Components
+namespace Classes
 {
-    internal class Login
+    public class Login
     {
-        public string User { get; }
-        public string Password { get; }
+        public string User { get; private set; }
+        public string Password { get; private set; }
+        public char Registered { get; set; } = 'n';
 
         public Login(string user, string password)
         {
