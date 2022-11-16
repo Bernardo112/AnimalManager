@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalManager.Components
+namespace Classes
 {
     public class Product
     {
