@@ -63,6 +63,37 @@ namespace AnimalManager.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _994737_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("994737-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _994737_removebg_preview__1_ {
+            get {
+                object obj = ResourceManager.GetObject("994737-removebg-preview (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_computer_icons_customer_service_icon_design_busine_ufo_silhouette_5b4d54c12cace8_163196881531794625183 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-computer-icons-customer-service-icon-design-busine-ufo-silhouette-5b4d54c" +
+                        "12cace8.163196881531794625183", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Telecommuting_amico {
             get {
                 object obj = ResourceManager.GetObject("Telecommuting-amico", resourceCulture);
