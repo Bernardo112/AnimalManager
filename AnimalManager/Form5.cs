@@ -21,5 +21,10 @@ namespace AnimalManager
         {
 
         }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

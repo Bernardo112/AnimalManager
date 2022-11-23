@@ -173,5 +173,11 @@
   <ItemGroup>
     <None Include="Resources\994737-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copyright-cuate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Telecommuting-amico1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
