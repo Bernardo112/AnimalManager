@@ -53,7 +53,6 @@
             this.label1.Size = new System.Drawing.Size(220, 76);
             this.label1.TabIndex = 0;
             this.label1.Text = "LOGIN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -64,7 +63,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textBox1
             // 
@@ -105,7 +103,6 @@
             this.label2.Size = new System.Drawing.Size(79, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "Usuário:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -157,7 +154,6 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Esqueci a senha";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
