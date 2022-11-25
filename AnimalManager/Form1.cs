@@ -42,21 +42,51 @@ namespace AnimalManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && strongPassword == true)
+            MySqlCommand commandReader = new MySqlCommand("select * from tb_login;", SQL_Connect.Connection);
+            MySqlDataReader reader = commandReader.ExecuteReader();
+
+            if (!reader.HasRows)
             {
-                MySqlCommand cmd = new MySqlCommand($"insert into tb_login (nm_user, nm_password) values ('{textBox1.Text}', '{textBox2.Text}')", SQL_Connect.Connection);
+                reader.Close();
 
-                cmd.ExecuteNonQuery();
+                if (textBox1.Text != "" && strongPassword == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand($"insert into tb_login (nm_user, nm_password, id_onUse) values ('{textBox1.Text}', '{textBox2.Text}', 'y')", SQL_Connect.Connection);
 
-                textBox1.Text = "";
-                textBox2.Text = "";
+                    cmd.ExecuteNonQuery();
+
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                }
+                else
+                {
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    MessageBox.Show("                       USUÁRIO OU SENHA INVÁLIDOS \n\n\n(é necessário pelo menos 8 caractéres, uma letra maiúscula e um número na senha)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                return;
             }
             else
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
-                MessageBox.Show("                       USUÁRIO OU SENHA INVÁLIDOS \n\n\n(é necessário pelo menos 8 caractéres, uma letra maiúscula e um número na senha)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Login l = new Login();
+                while (reader.Read())
+                {
+                    if (reader["id_onUse"].ToString() == "y")
+                    {
+                        l = new Login((int)reader["cd_login"], reader["nm_user"].ToString(), reader["nm_password"].ToString());
+                        char[] array = reader["id_onUse"].ToString().ToCharArray();
+                        l.OnUse = array[0];
+                    }
+                }
+
+                if(textBox1.Text == l.UserName && textBox2.Text == l.Password)
+                {
+                    MessageBox.Show("Sucesso meu patrão");
+                }
             }
+
+            reader.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -68,17 +98,17 @@ namespace AnimalManager
             {
                 foreach (char c in passwordArray)
                 {
-                    if(c.ToString() == c.ToString().ToUpper() && !Int32.TryParse(c.ToString(), out int result))
+                    if (c.ToString() == c.ToString().ToUpper() && !Int32.TryParse(c.ToString(), out int result))
                     {
                         UpperCheck = true;
                     }
-                    if(Int32.TryParse(c.ToString(), out int value))
+                    if (Int32.TryParse(c.ToString(), out int value))
                     {
                         NumberCheck = true;
                     }
                 }
 
-                if(UpperCheck == true && NumberCheck == true)
+                if (UpperCheck == true && NumberCheck == true)
                 {
                     strongPassword = true;
                 }
@@ -87,8 +117,8 @@ namespace AnimalManager
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            button1_Click(sender, e);
+            if (e.KeyCode == Keys.Enter)
+                button1_Click(sender, e);
         }
     }
 }

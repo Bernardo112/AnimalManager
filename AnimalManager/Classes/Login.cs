@@ -9,13 +9,20 @@ namespace Classes
 {
     public class Login
     {
-        public string User { get; private set; }
+        public int UserID { get; set; }
+        public string UserName { get; private set; }
         public string Password { get; private set; }
-        public char Registered { get; set; } = 'n';
+        public char OnUse { get; set; } = 'n';
 
-        public Login(string user, string password)
+        public Login()
         {
-            User = user;
+
+        }
+
+        public Login(int id, string user, string password)
+        {
+            UserID = id;
+            UserName = user;
             Password = password;
         }
     }
