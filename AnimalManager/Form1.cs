@@ -83,6 +83,9 @@ namespace AnimalManager
                 if(textBox1.Text == l.UserName && textBox2.Text == l.Password)
                 {
                     MessageBox.Show("Sucesso meu patrão");
+                    var form5 = new Form5();
+                    this.Hide();
+                    form5.ShowDialog();    
                 }
             }
 

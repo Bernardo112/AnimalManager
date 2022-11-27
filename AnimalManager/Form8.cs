@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace AnimalManager
 {
-    public partial class Form6 : Form
+    public partial class Form8 : Form
     {
-        public Form6()
+        public Form8()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            var form5 = new Form5();
+            this.Hide();
+            form5.ShowDialog();
         }
     }
 }

@@ -26,5 +26,36 @@ namespace AnimalManager
         {
 
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var form3 = new Form3();
+            this.Hide();
+            form3.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var form2 = new Form2();
+            this.Hide();
+            form2.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var form4 = new Form4();
+            this.Hide();
+            form4.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

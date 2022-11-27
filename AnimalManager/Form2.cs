@@ -46,5 +46,29 @@ namespace AnimalManager
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var form5 = new Form5();
+            this.Hide();
+            form5.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Form7 = new Form7();
+            this.Hide();
+            Form7.ShowDialog();
+        }
     }
 }
