@@ -23,7 +23,7 @@ namespace AnimalManager
 
         void Connect_SQL()
         {
-            string message = SQL_Connect.Connect("127.0.0.1", "root", "db_AnimalManager", "tubas");
+            string message = SQL_Connect.Connect("127.0.0.1", "root", "db_AnimalManager", "admin");
 
             if (message != "")
             {

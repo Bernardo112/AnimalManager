@@ -100,7 +100,6 @@
             this.label4.Size = new System.Drawing.Size(69, 18);
             this.label4.TabIndex = 11;
             this.label4.Text = "PREÇO:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -121,7 +120,6 @@
             this.label6.Size = new System.Drawing.Size(70, 18);
             this.label6.TabIndex = 13;
             this.label6.Text = "MARCA:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -144,6 +142,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "CADASTRAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -162,7 +161,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(213, 25);
             this.textBox2.TabIndex = 17;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox4
             // 
@@ -190,6 +188,8 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(180, 25);
             this.textBox6.TabIndex = 20;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.textBox6.Leave += new System.EventHandler(this.textBox6_Leave);
             // 
             // button2
             // 
@@ -224,7 +224,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1920, 70);
             this.panel2.TabIndex = 23;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // groupBox1
             // 
