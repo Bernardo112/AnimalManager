@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Classes;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace AnimalManager
 {
     public partial class Form2 : Form
     {
-        Product product;
         string ValidatedNCM;
 
         public Form2()
@@ -24,9 +24,10 @@ namespace AnimalManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand($"insert into tb_product (nm_product, nm_brand, ncm, vl_sale_price, vl_cost_price, qt_product) values ('{textBox3.Text}', '{textBox2.Text}', '{textBox6.Text}', '{double.Parse(textBox1.Text)}', '{double.Parse(textBox5.Text)}', '{int.Parse(textBox1.Text)}')", SQL_Connect.Connection);
+            MySqlCommand cmd = new MySqlCommand($"insert into tb_product (nm_product, nm_brand, ncm, vl_sale_price, vl_cost_price, qt_product) values ('{textBox3.Text}', '{textBox2.Text}', '{textBox6.Text}', '{double.Parse(textBox1.Text.ToString(CultureInfo.InvariantCulture))}', '{double.Parse(textBox5.Text.ToString(CultureInfo.InvariantCulture))}', '{int.Parse(textBox4.Text)}')", SQL_Connect.Connection);
 
             cmd.ExecuteNonQuery();
+            button2_Click(sender, e);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace AnimalManager
                 MessageBox.Show("Número de caractéres inválido", "Caractéres inválidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox6.Text = "";
             }
+            else if (!int.TryParse(textBox6.Text, out _))
+            {
+                MessageBox.Show("É apenas permitido números", "Formato incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox6.Text = "";
+            }
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -69,15 +75,37 @@ namespace AnimalManager
                 ValidatedNCM = textBox6.Text;
             }
 
-            if(textBox6.Text.Length > 8)
+			if (textBox6.Text.Length > 8)
             {
                 textBox6.Text = ValidatedNCM;
             }
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            //product = new Product(0, textBox3.Text, textBox2.Text, textBox6.Text, double.Parse(textBox5.Text), int.Parse(textBox1.Text), );
+		private void textBox1_Leave(object sender, EventArgs e)
+		{
+            if (!double.TryParse(textBox1.Text.ToString(CultureInfo.InvariantCulture), out _))
+            {
+                MessageBox.Show("É apenas permitido números", "Formato incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Text = "";
+            }
         }
-    }
+
+		private void textBox5_Leave(object sender, EventArgs e)
+		{
+            if (!double.TryParse(textBox5.Text.ToString(CultureInfo.InvariantCulture), out _))
+            {
+                MessageBox.Show("É apenas permitido números", "Formato incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox5.Text = "";
+            }
+        }
+
+		private void textBox4_Leave(object sender, EventArgs e)
+		{
+            if (!int.TryParse(textBox4.Text, out _))
+            {
+                MessageBox.Show("É apenas permitido números", "Formato incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox4.Text = "";
+            }
+        }
+	}
 }

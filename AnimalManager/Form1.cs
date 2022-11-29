@@ -23,7 +23,7 @@ namespace AnimalManager
 
         void Connect_SQL()
         {
-            string message = SQL_Connect.Connect("127.0.0.1", "root", "db_AnimalManager", "admin");
+            string message = SQL_Connect.Connect("127.0.0.1", "root", "db_AnimalManager", "000111bernardoestranho**/high15");
 
             if (message != "")
             {
@@ -82,6 +82,7 @@ namespace AnimalManager
 
                 if(textBox1.Text == l.UserName && textBox2.Text == l.Password)
                 {
+                    reader.Close();
                     MessageBox.Show("Sucesso meu patrão");
                     var form5 = new Form5();
                     this.Hide();

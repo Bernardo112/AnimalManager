@@ -9,7 +9,7 @@ namespace Classes
     {
         public int Id { get; set; }
         public string ProductName { get; set; }
-        public int BrandName { get; set; }
+        public string BrandName { get; set; }
         public string NCM { get; set; }
         public double SalePrice { get; set; }
         public double CostPrice { get; set; }
@@ -23,7 +23,7 @@ namespace Classes
             SalePrice = salePrice;
         }
 
-        public Product(int id, string productName, int brandName, string nCM, double salePrice, double costPrice, int amount)
+        public Product(int id, string productName, string brandName, string nCM, double salePrice, double costPrice, int amount)
         {
             Id = id;
             ProductName = productName;
