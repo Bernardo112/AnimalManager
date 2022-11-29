@@ -24,7 +24,7 @@ namespace AnimalManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand($"insert into tb_login (nm_product, nm_brand, ncm, vl_sale_price, vl_cost_price, qt_product) values ('{textBox3.Text}', '{textBox2.Text}', '{textBox6.Text}', '{double.Parse(textBox1.Text)}', '{double.Parse(textBox5.Text)}', '{int.Parse(textBox1.Text)}')", SQL_Connect.Connection);
+            MySqlCommand cmd = new MySqlCommand($"insert into tb_product (nm_product, nm_brand, ncm, vl_sale_price, vl_cost_price, qt_product) values ('{textBox3.Text}', '{textBox2.Text}', '{textBox6.Text}', '{double.Parse(textBox1.Text)}', '{double.Parse(textBox5.Text)}', '{int.Parse(textBox1.Text)}')", SQL_Connect.Connection);
 
             cmd.ExecuteNonQuery();
         }
