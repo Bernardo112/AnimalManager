@@ -44,5 +44,3 @@ nm_email varchar(40),
 nm_address varchar(50),
 nr_phone char(11),
 primary key (cnpj));
-
-select * from tb_login;

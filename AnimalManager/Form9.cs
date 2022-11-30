@@ -8,14 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Classes;
 
 namespace AnimalManager
 {
     public partial class Form9 : Form
     {
-        MySqlConnection conn;
-        MySqlCommand cmd;
-        MySqlDataReader reader;
         MySqlDataAdapter adapter;
         string strSQL;
         public Form9()
@@ -39,37 +37,17 @@ namespace AnimalManager
         {
             try
             {
-                conn = new MySqlConnection("Server=localhost;Database=db_animalmanager;Uid=root;Pwd=tubas;");
-
-
-
-                strSQL = "SELECT * FROM tb_supplier";
-
-
-
-                adapter = new MySqlDataAdapter(strSQL, conn);
-
-
+                strSQL = "SELECT * FROM tb_product";
+                adapter = new MySqlDataAdapter(strSQL, SQL_Connect.Connection);
 
                 DataTable dt = new DataTable();
 
-
-
                 adapter.Fill(dt);
-
-
-
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-                conn = null;
-                cmd = null;
             }
         }
     }
