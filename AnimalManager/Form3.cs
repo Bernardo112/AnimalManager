@@ -107,7 +107,7 @@ namespace AnimalManager
 					if (code == (int)reader["cd_product"])
 					{
 						gotProductCodes.Add(code);
-						totalValue += double.Parse(reader["vl_sale_price"].ToString());
+						totalValue += double.Parse(reader["vl_sale_price"].ToString()) * int.Parse(textBox4.Text);
 						textBox1.Text = "R$ " + totalValue.ToString("F2", CultureInfo.InvariantCulture);
 					}
 				}
@@ -121,5 +121,14 @@ namespace AnimalManager
 		{
 			textBox1.Text = "R$ " + totalValue.ToString("F2", CultureInfo.InvariantCulture);
 		}
-	}
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+			if (!int.TryParse(textBox4.Text, out _) && textBox4.Text != "")
+			{
+				MessageBox.Show("É apenas permitido números", "Formato incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				textBox4.Text = "";
+			}
+		}
+    }
 }
